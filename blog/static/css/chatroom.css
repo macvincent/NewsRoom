@@ -1,0 +1,108 @@
+/* Blog Page */
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+/* Header */
+.navbar{
+    background-color : black;
+    height: 50px;
+    width: 50px;
+    padding: 20px;
+}
+.header{
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    height: 77px;
+    text-align: left;
+}
+.left{
+    width: 80%;
+    display: block;
+    text-align: left;
+}
+.right{
+    width: 20%;
+    padding: 15px 15px 15px 20px;
+    text-align: right;
+}
+h1{
+    display: inline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.icon{
+    height: 50px;
+    width: 50px;
+}
+.chatroom{
+    width: 80%;
+    margin: auto;
+    height: 90%;
+}
+.title{
+    height:5%;
+    font-weight: 200;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid black;
+}
+.body{
+    width: 100%;
+    height: 93%;
+    overflow: hidden;
+    display: flex;
+}
+.posts{
+    width: 50%;
+    overflow: hidden;
+}
+.img{
+    float: left;
+    width: 100%;
+}
+.post{
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+}
+/* Comment */
+.comment{
+    pointer-events: all;
+    background-color:#80808029;
+    width: 50%;
+    height: 100%;
+}
+.commentbox{
+    height: 60%;
+}
+.comment input{
+    height: 30%;
+}
+.comment form input[type="submit" i] {
+    border-radius: 5px;
+}
+.comment form input[type="text"] {
+    border-radius: 5px;
+}
+.comment ul{
+    text-align: left;
+    list-style: none;
+}
+.comment textarea{
+    border-radius: 5px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

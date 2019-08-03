@@ -1,0 +1,115 @@
+/* Header */
+.navbar{
+    background-color : black;
+    height: 50px;
+    width: 50px;
+    padding: 20px;
+}
+.header{
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    height: 77px;
+    text-align: left;
+}
+.left{
+    width: 80%;
+    display: block;
+    text-align: left;
+}
+.right{
+    width: 20%;
+    padding: 15px 15px 15px 20px;
+    text-align: right;
+}
+h1{
+    display: inline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.icon{
+    height: 50px;
+    width: 50px;
+}
+ul{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 77px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    max-width: 1010px;
+    padding: 26px 20px;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    width: 100%;
+}
+body{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: url(../docs/striped_lens/striped_lens.png);
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    font-family: sans-serif;
+}
+.feed{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+.article{
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #cecece;
+    margin-top: 40px;
+    padding: 0!important;
+}
+#name{
+    padding: 40px;
+    border-bottom: 1px solid #efefef;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 16px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: white;
+}
+img{
+    width:100%;
+    height:500px;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+textarea{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

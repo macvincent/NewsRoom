@@ -1,0 +1,50 @@
+{% load static%}
+<!DOCTYPE html>
+    <html>
+    <head>
+    <link rel="stylesheet" href="{%static 'css/chatroom.css' %}">
+    <title>  
+        {{news.title}}
+    </title>
+    </head>
+    <body>
+        <div class="header">
+            <a class="left" href="{% url 'home' %}">
+                <img src="{%static 'img/newsroom.svg' %}" class="icon "alt=""><h1>NewsRoom</h1>
+            </a>
+            <div class="right">
+                <img src="{%static 'img/profile.svg' %}" class="icon" alt="">
+            </div>
+        </div>
+        <div class="chatroom">
+            <div class="title">
+                {{news.title}}
+            </div>
+            <div class="body"> 
+                <div class="post">
+                    <div class="img">
+                        <img src="{{news.image}}" class="img" alt="{{news.title}}">
+                    </div>
+                    {{news.post}}
+                    <footer>Data supplied by NewsApi Website</footer>
+                </div>
+                <div class="comment">
+                    <div class="commmentbox">
+                        <ul>
+                            {% for comment in comments %}
+                                <li><a href = "{% url 'viewcomment' %}">{{user.username}}: {{comment.comment}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="input">
+                        <form action="{% url 'chatroom' %}" method="POST">{% csrf_token %}
+                                <input type="hidden" value="{{news.title}}" name="title">
+                                <textarea name="newcomment" id="newcomment" placeholder="add comment..."></textarea>
+                                <input type="submit" value="send">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

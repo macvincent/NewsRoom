@@ -1,0 +1,36 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="{%static 'css/blog.css' %}">
+    </head>
+    <header>
+    </header>
+    <body>
+        <div>
+        <div class="header">
+            <a class="left" href="{% url 'home' %}">
+                <img src="{%static 'img/newsroom.svg' %}" class="icon "alt=""><h1>NewsRoom</h1>
+            </a>
+            <div class="right">
+                <img src="{%static 'img/profile.svg' %}" class="icon" alt="">
+            </div>
+        </div>
+        <div class="feed">
+                {% block pagecontent %}
+                {% for news in news_list %}
+                <a href="{% url 'chatroom' %}?news={{news.title}}" class="article">
+                    <p>
+                        {{news.title}}
+                    </p>
+                    <img src="{{news.image}}" height="400" width="500"/><br>
+                    <div class="comment">
+                        {{news.post}}
+                    </div>
+                </a>
+                {% endfor %}
+            {% endblock %}
+        </div>
+        </div>
+        <footer>Data supplied by NewsApi Website</footer>
+    </body>
+</html>
