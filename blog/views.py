@@ -53,5 +53,4 @@ class ChatRoom(TemplateView):
         comment = Comment(comment = _comment, news = _news, name = request.user)
         comment.save()
         oldComments = Comment.objects.filter(news =_news)
-        print(oldComments)
         return render(request, 'static/chatroom.html', {"news": _news ,"comments": oldComments})

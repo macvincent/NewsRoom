@@ -32,7 +32,7 @@
                     <div class="commmentbox">
                         <ul>
                             {% for comment in comments %}
-                                <li><a href = "{% url 'viewcomment' %}">{{user.username}}: {{comment.comment}}</a></li>
+                                <li><a href = "{% url 'viewcomment' %}">{{comment.name.username}}: {{comment.comment}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
