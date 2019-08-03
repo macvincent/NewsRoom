@@ -12,21 +12,25 @@
                 <img src="{%static 'img/newsroom.svg' %}" class="icon "alt=""><h1>NewsRoom</h1>
             </a>
             <div class="right">
-                <img src="{%static 'img/profile.svg' %}" class="icon" alt="">
+                <a href="{% url 'profile' %}">
+                    <img src="{%static 'img/profile.svg' %}" class="icon" alt="">
+                </a>
             </div>
         </div>
         <div class="feed">
                 {% block pagecontent %}
                 {% for news in news_list %}
-                <a href="{% url 'chatroom' %}?news={{news.title}}" class="article">
-                    <p>
-                        {{news.title}}
-                    </p>
-                    <img src="{{news.image}}" height="400" width="500"/><br>
-                    <div class="comment">
-                        {{news.post}}
-                    </div>
-                </a>
+                <div  class="article">
+                    <a href="{% url 'chatroom' %}?news={{news.title}}">
+                        <p>
+                            {{news.title}}
+                        </p>
+                        <img src="{{news.image}}" height="400" width="500"/><br>
+                        <div class="comment">
+                            {{news.post}}
+                        </div>
+                    </a>
+                </div>
                 {% endfor %}
             {% endblock %}
         </div>

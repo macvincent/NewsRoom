@@ -15,14 +15,12 @@ body,html{
 .header{
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
-    position: fixed;
     display: flex;
-    top: 0;
     width: 100%;
     z-index: 1;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
-    height: 77px;
+    height: 12%;
     text-align: left;
 }
 .left{
@@ -44,9 +42,9 @@ h1{
     width: 50px;
 }
 .chatroom{
-    width: 80%;
     margin: auto;
-    height: 90%;
+    width: 90%;
+    height: 87%;
 }
 .title{
     height:5%;
