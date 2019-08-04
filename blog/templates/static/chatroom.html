@@ -25,7 +25,11 @@
                         <img src="{{news.image}}" class="img" alt="{{news.title}}">
                     </div>
                     <h2>{{news.title}}</h2>
-                    {{news.post}}
+                    <p>
+                        {{news.post}}
+                        <br>
+                        source: <a href="{{news.url}}">{{news.source}}</a>
+                    </p>
                     <footer>Data supplied by NewsApi Website</footer>
                 </div>
                 <div class="comment">

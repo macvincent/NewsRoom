@@ -60,10 +60,7 @@ h1{
     overflow: hidden;
     display: flex;
 }
-.posts{
-    width: 50%;
-    overflow: hidden;
-}
+/* Posts */
 .img{
     float: left;
     width: 100%;
@@ -73,6 +70,9 @@ h1{
     margin: 0;
     width: 50%;
     height: 100%;
+}
+.post p{
+    text-align: left;
 }
 /* Comment */
 .comment{

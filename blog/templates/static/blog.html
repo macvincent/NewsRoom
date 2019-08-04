@@ -7,6 +7,7 @@
     </header>
     <body>
         <div>
+        {% block pagecontent %}
         <div class="header">
             <a class="left" href="{% url 'home' %}">
                 <img src="{%static 'img/newsroom.svg' %}" class="icon "alt=""><h1>NewsRoom</h1>
@@ -17,8 +18,8 @@
                 </a>
             </div>
         </div>
+        {% endblock %}
         <div class="feed">
-                {% block pagecontent %}
                 {% for news in news_list %}
                 <div  class="article">
                     <a href="{% url 'chatroom' %}?news={{news.title}}">
@@ -32,7 +33,6 @@
                     </a>
                 </div>
                 {% endfor %}
-            {% endblock %}
         </div>
         </div>
         <footer>Data supplied by NewsApi Website</footer>

@@ -20,20 +20,23 @@ class HomePage(forms.Form):
 class BlogHome(CreateView):
     model = NewsRoom
     fields = ['title', 'post', 'image']
-    news_list = list()
+    news_list = set()
     def get (self, request):
         api_key = "35edd1b6538c47b596c31defeaa68cb6"
         r = requests.get('https://newsapi.org/v2/top-headlines?country=us&apiKey='+api_key).json()
         articles = r['articles']
         for i in range(len(articles)):
-            url = articles[i]["urlToImage"]
+            image = articles[i]["urlToImage"]
             title = articles[i]["title"]
-            post = articles[i]["content"]
-            news = NewsRoom(title = title, image = url, post = post)
+            post = str(articles[i]["content"])
+            post = post[:post.find('[')]
+            print(post)
+            url = articles[i]["url"]
+            source = articles[i]["source"]["name"]
+            print(source)
+            news = NewsRoom(title = title, image = image, post = post, url = url, source = source)
             news.save()
-            self.news_list.append(news)
-        #Render news list
-            random.shuffle(self.news_list)
+            self.news_list.add(news)
         return render(request, 'static/blog.html', {"news_list": self.news_list})
 
 # Create chat room to discuss about news
