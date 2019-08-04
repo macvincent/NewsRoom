@@ -34,6 +34,7 @@ body,html{
     text-align: right;
 }
 h1{
+    color: black;
     display: inline;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -42,6 +43,7 @@ h1{
     width: 50px;
 }
 .chatroom{
+    border: 1px solid grey;
     margin: auto;
     width: 90%;
     height: 87%;
@@ -102,5 +104,7 @@ h1{
 }
 a{
     text-decoration: none;
-    color: black;
+}
+.name{
+    color: grey;
 }

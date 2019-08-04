@@ -28,15 +28,14 @@
                     <p>
                         {{news.post}}
                         <br>
-                        source: <a href="{{news.url}}">{{news.source}}</a>
+                        <span class="name">source: <a href="{{news.url}}">{{news.source}}</a></span>
                     </p>
-                    <footer>Data supplied by NewsApi Website</footer>
                 </div>
                 <div class="comment">
                     <div class="commmentbox">
                         <ul>
                             {% for comment in comments %}
-                                <li><a href = "{% url 'viewcomment' %}">{{comment.name.username}}: {{comment.comment}}</a></li>
+                                <li><a href = "{% url 'viewcomment' %}"><span class="name">{{comment.name.username}}: </span> {{comment.comment}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -49,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            <footer>Data supplied by <a href="https://newsapi.org/">NewsApi Website</a></footer>
         </div>
     </body>
 </html>

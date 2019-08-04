@@ -19,7 +19,7 @@ import blog.views as views
 
 urlpatterns = [
     path('', views.BlogHome.as_view(), name = 'home'),
-    path('news/', views.ChatRoom.as_view(), name = 'chatroom'),
-    path('comments/', views.ChatRoom.as_view(), name = 'viewcomment'),
+    path('chatroom/', views.ChatRoom.as_view(), name = 'chatroom'),
+    path('chatroom/', views.ChatRoom.as_view(), name = 'viewcomment'),
     path('profile/', views.ProfileView.as_view(), name = 'profile'),
 ]
