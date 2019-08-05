@@ -27,7 +27,11 @@
                     <h2>{{news.title}}</h2>
                     <p>
                         {{news.post}}
-                        <br>
+                        <br>                        <form action="{% url 'chatroom' %}" method="POST">{% csrf_token %}
+                                <input type="hidden" value="{{news.title}}" name="title">
+                                <textarea name="newcomment" id="newcomment" placeholder="add comment..."></textarea>
+                                <input type="submit" value="send">
+                        </form>
                         <span class="name">source: <a href="{{news.url}}">{{news.source}}</a></span>
                     </p>
                 </div>

@@ -8,13 +8,6 @@ import requests
 import random
 from django.contrib.auth.models import User
 
-# Create your views here.
-class HomePage(forms.Form):
-    title = forms.CharField()
-    post = forms.CharField()
-    image = forms.CharField()
-    template_name = "index.html"
-
 #A landing page that offers a news feed.
 #I mean an actual news feed - not pun intended
 class BlogHome(CreateView):

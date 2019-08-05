@@ -1,0 +1,42 @@
+/* Profile */
+.profile{
+    display: flex;
+    height: 89%;
+    width: 70%;
+    margin: auto;
+}
+
+/* ProfileInfo */
+.profileinfo{
+    width: 50%;
+    background: grey;
+}
+
+.profileimage{
+    padding: 20px;
+    width: 50%;
+    height: 40%;
+}
+
+.info{
+    margin: 20px;
+    width: 90%;
+    height: 40%;
+    background: black;
+    color: azure;
+}
+
+ul{
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 10px;
+}
+li{
+    padding-top: 10px;
+}
+/* chatinfo */
+.chatinfo{
+    width: 50%;
+    background: blue;
+}

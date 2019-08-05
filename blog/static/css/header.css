@@ -4,6 +4,7 @@ body,html{
     height: 100%;
     margin: 0;
     text-align: center;
+    background: url(../docs/striped_lens/striped_lens.png)
 }
 .navbar{
     background-color : black;
@@ -15,12 +16,12 @@ body,html{
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
     display: flex;
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 1;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
-    height: 12%;
+    height: 10%;
     text-align: left;
 }
 .left{
@@ -40,6 +41,7 @@ h1{
 .icon{
     height: 50px;
     width: 50px;
+    padding-left: 10px;
 }
 a{
     text-decoration: none;
