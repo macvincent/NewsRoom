@@ -85,6 +85,7 @@ h1{
 }
 .commentbox{
     height: 60%;
+    overflow-y: scroll;
 }
 .comment input{
     height: 30%;
