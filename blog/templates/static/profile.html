@@ -36,7 +36,7 @@
                 <h2>Comments</h2>
                 <ul>
                     {% for comment in comments %}
-                        <li><a href = "{% url 'viewcomment' %}"><span class="story">{{comment.news}}: </span> {{comment.comment}}</a></li>
+                        <li><a href = "{% url 'profile' %}?user={{user.username}}"><span class="story">{{comment.news}}: </span> {{comment.comment}}</a></li>
                     {% endfor %}
                 </ul>
             </div>

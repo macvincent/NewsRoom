@@ -53,10 +53,24 @@ class ChatRoom(TemplateView):
 
 class ProfileView(TemplateView):
     def get (self, request):
-        comments = Comment.objects.filter(name = request.user)
-        commentsNum = len(comments)
-        stories = set()
-        for comment in comments:
-            stories.add(comment.news)
-        storiesNum = len(stories)
-        return render(request, 'static/profile.html', {"user": request.user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "comments" : comments})
+        if request.GET.get('user') is None:
+            comments = Comment.objects.filter(name = request.user)
+            commentsNum = len(comments)
+            stories = set()
+            for comment in comments:
+                stories.add(comment.news)
+            storiesNum = len(stories)
+            return render(request, 'static/profile.html', {"user": request.user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "comments" : comments})
+        else:
+            username = request.GET.get('user')
+            print(username)
+            user = User.objects.filter(username = username)
+            comments = Comment.objects.filter(name = request.user)
+            commentsNum = len(comments)
+            stories = set()
+            for comment in comments:
+                stories.add(comment.news)
+            storiesNum = len(stories)
+            return render(request, 'static/profile.html', {"user": request.user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "comments" : comments})
+
+            

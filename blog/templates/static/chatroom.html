@@ -27,11 +27,7 @@
                     <h2>{{news.title}}</h2>
                     <p>
                         {{news.post}}
-                        <br>                        <form action="{% url 'chatroom' %}" method="POST">{% csrf_token %}
-                                <input type="hidden" value="{{news.title}}" name="title">
-                                <textarea name="newcomment" id="newcomment" placeholder="add comment..."></textarea>
-                                <input type="submit" value="send">
-                        </form>
+                        <br>                        
                         <span class="name">source: <a href="{{news.url}}">{{news.source}}</a></span>
                     </p>
                 </div>
@@ -39,7 +35,7 @@
                     <div class="commmentbox">
                         <ul>
                             {% for comment in comments %}
-                                <li><a href = "{% url 'viewcomment' %}"><span class="name">{{comment.name.username}}: </span> {{comment.comment}}</a></li>
+                                <li><a href = "{% url 'profile' %}?user={{comment.name.username}}"><span class="name">{{comment.name.username}}: </span> {{comment.comment}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
