@@ -53,24 +53,27 @@ class ChatRoom(TemplateView):
 
 class ProfileView(TemplateView):
     def get (self, request):
-        if request.GET.get('user') is None:
-            comments = Comment.objects.filter(name = request.user)
-            commentsNum = len(comments)
-            stories = set()
-            for comment in comments:
-                stories.add(comment.news)
-            storiesNum = len(stories)
-            return render(request, 'static/profile.html', {"user": request.user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "comments" : comments})
-        else:
+
+        # Check who is trying to view the profile
+        user = request.user
+        if request.GET.get('user') is not None:
             username = request.GET.get('user')
-            print(username)
-            user = User.objects.filter(username = username)
-            comments = Comment.objects.filter(name = request.user)
-            commentsNum = len(comments)
-            stories = set()
-            for comment in comments:
-                stories.add(comment.news)
-            storiesNum = len(stories)
-            return render(request, 'static/profile.html', {"user": request.user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "comments" : comments})
+            user = User.objects.filter(username = username).first()
+
+        # Get user comments
+        comments = Comment.objects.filter(name = user)
+        commentsNum = len(comments)
+
+        # Creat a dictionary that maps news to comments
+        stories = {}
+        for comment in comments:
+            if comment.news in stories:
+                stories[comment.news].append(comment.comment)
+            else:
+                stories[comment.news] = [comment.comment]
+        storiesNum = len(stories)
+        
+        # Render dictionary
+        return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories})
 
             

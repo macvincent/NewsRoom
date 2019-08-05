@@ -2,14 +2,15 @@
 .profile{
     display: flex;
     height: 89%;
-    width: 70%;
+    width: 90%;
     margin: auto;
+    border: 1px solid grey;
 }
 
 /* ProfileInfo */
 .profileinfo{
     width: 50%;
-    background: #80808012;
+    background: #fff;
 }
 
 .profileimage{
@@ -19,17 +20,16 @@
 }
 
 .info{
-    display: relative;
     margin: 20px;
     width: 85%;
-    height: 40%;
-    background: #808080;
-    color: azure;
+    height: 30%;
     border-radius: 10px;
     padding: 5px;
+    background: #8080805c;
 }
 #name{
     font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 ul{
@@ -45,6 +45,9 @@ li{
 .chatinfo{
     width: 50%;
     padding: 20px;
-    background: #808080;
+    background: #80808029;
     overflow-y: scroll;
+}
+#story{
+    color: grey;
 }

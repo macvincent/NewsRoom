@@ -35,8 +35,11 @@
             <div class="chatinfo">
                 <h2>Comments</h2>
                 <ul>
-                    {% for comment in comments %}
-                        <li><a href = "{% url 'profile' %}?user={{user.username}}"><span class="story">{{comment.news}}: </span> {{comment.comment}}</a></li>
+                    {% for story, comments in stories.items %}
+                        <li><a id="story" href="{% url 'chatroom' %}?news={{story.title}}">{{story}}</a></li>
+                        {% for comment in comments %}
+                            <li>=> <a href = "{% url 'profile' %}?user={{user.username}}">{{comment}}</a></li>
+                        {% endfor %}
                     {% endfor %}
                 </ul>
             </div>
