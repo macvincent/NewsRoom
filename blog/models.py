@@ -1,3 +1,4 @@
+# TODO: Add way to verify area of expertice of users and rank comments based on that
 from django.db import models
 from django.contrib.auth.models import User
 

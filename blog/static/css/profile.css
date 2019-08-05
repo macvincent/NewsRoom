@@ -9,7 +9,7 @@
 /* ProfileInfo */
 .profileinfo{
     width: 50%;
-    background: grey;
+    background: #80808012;
 }
 
 .profileimage{
@@ -19,11 +19,17 @@
 }
 
 .info{
+    display: relative;
     margin: 20px;
-    width: 90%;
+    width: 85%;
     height: 40%;
-    background: black;
+    background: #808080;
     color: azure;
+    border-radius: 10px;
+    padding: 5px;
+}
+#name{
+    font-weight: 500;
 }
 
 ul{
@@ -38,5 +44,6 @@ li{
 /* chatinfo */
 .chatinfo{
     width: 50%;
-    background: blue;
+    padding: 20px;
+    background: #808080;
 }
