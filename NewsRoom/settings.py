@@ -1,3 +1,5 @@
+import django_heroku
+
 """
 Django settings for NewsRoom project.
 
@@ -125,3 +127,5 @@ STATIC_URL = '/static/'
 # CHANGEME
 LOGOUT_REDIRECT_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
+
+django_heroku.settings(locals())

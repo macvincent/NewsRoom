@@ -1,0 +1,1 @@
+web: gunicorn NewsRoom.wsgi
