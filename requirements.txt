@@ -1,6 +1,3 @@
 django
-djangorestframework
 gunicorn
-libpq-dev
-python-dev
 django-heroku
