@@ -1,1 +1,1 @@
-web: gunicorn NewsRoom.wsgi
+web: gunicorn NewsRoom.wsgi --log-file -
