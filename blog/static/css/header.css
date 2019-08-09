@@ -16,11 +16,12 @@ body,html{
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
     display: flex;
+    position: relative;
     width: 100%;
     z-index: 1;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
-    height: 8%;
+    height: 67px;
     text-align: left;
     padding-top: 5px;
 }

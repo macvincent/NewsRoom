@@ -25,15 +25,16 @@
                     <div class="img">
                         <img src="{{news.image}}" class="img" alt="{{news.title}}">
                     </div>
-                    <h2>{{news.title}}</h2>
+                    <h2 class="title">{{news.title}}</h2>
                     <p>
                         {{news.post}}
                         <br>                        
-                        <span class="name">source: <a href="{{news.url}}">{{news.source}}</a></span>
+                        <span class="name">View full article from source: <a href="{{news.url}}">{{news.source}}</a></span>
                     </p>
                 </div>
                 <div class="comment">
-                    <div class="commmentbox">
+                        <h2>Analysis</h2>
+                    <div class="commentbox">
                         <ul>
                             {% for comment in comments %}
                                 <li><a href = "{% url 'profile' %}?user={{comment.name.username}}"><span class="name">{{comment.name.username}}: </span> {{comment.comment}}</a></li>
@@ -49,7 +50,6 @@
                     </div>
                 </div>
             </div>
-            <footer>Data supplied by <a href="https://newsapi.org/">NewsApi Website</a></footer>
         </div>
     </body>
 </html>
