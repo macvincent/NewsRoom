@@ -4,11 +4,11 @@ body,html{
     height: 100%;
     margin: 0;
     text-align: center;
-    background: url(../docs/striped_lens/striped_lens.png)
 }
+/* Header */
 .navbar{
     background-color : black;
-    height: 50px;
+    height: 30px;
     width: 50px;
     padding: 20px;
 }
@@ -16,32 +16,33 @@ body,html{
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
     display: flex;
-    position: relative;
     width: 100%;
     z-index: 1;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
-    height: 10%;
+    height: 8%;
     text-align: left;
+    padding-top: 5px;
 }
 .left{
     width: 80%;
     display: block;
+    padding-left: 20px;
     text-align: left;
 }
 .right{
     width: 20%;
-    padding: 15px 15px 15px 20px;
+    padding-right: 20px;
     text-align: right;
 }
 h1{
+    color: black;
     display: inline;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .icon{
     height: 50px;
     width: 50px;
-    padding-left: 10px;
 }
 a{
     text-decoration: none;

@@ -1,6 +1,7 @@
 {%load static%}
 <html>
     <head>
+        <link rel="stylesheet" href="{%static 'css/header.css' %}">
         <link rel="stylesheet" href="{%static 'css/blog.css' %}">
     </head>
     <header>
@@ -23,11 +24,11 @@
                 {% for news in news_list %}
                 <div  class="article">
                     <a href="{% url 'chatroom' %}?news={{news.title}}">
-                        <p>
+                        <p class="blogText">
                             {{news.title}}
                         </p>
                         <img src="{{news.image}}" height="400" width="500"/><br>
-                        <div class="comment">
+                        <div class="comment blogText">
                             {{news.post}}
                         </div>
                     </a>

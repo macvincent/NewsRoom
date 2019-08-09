@@ -35,6 +35,6 @@ input[type = "submit"]{
     width: 50px;
 }
 a{
+    margin-top: 20px;
     color: #666;
-    padding-top: 20px;
 }

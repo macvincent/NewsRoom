@@ -1,61 +1,8 @@
-/* Header */
-.navbar{
-    background-color : black;
-    height: 50px;
-    width: 50px;
-    padding: 20px;
-}
+/* BlogPage */
 .header{
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0,0,0,.0975);
     position: fixed;
-    display: flex;
     top: 0;
-    width: 100%;
-    z-index: 1;
-    -webkit-transition: height .2s ease-in-out;
-    transition: height .2s ease-in-out;
     height: 77px;
-    text-align: left;
-}
-.left{
-    width: 80%;
-    display: block;
-    text-align: left;
-}
-.right{
-    width: 20%;
-    padding: 15px 15px 15px 20px;
-    text-align: right;
-}
-h1{
-    display: inline;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.icon{
-    height: 50px;
-    width: 50px;
-}
-ul{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    height: 77px;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    max-width: 1010px;
-    padding: 26px 20px;
-    -webkit-transition: height .2s ease-in-out;
-    transition: height .2s ease-in-out;
-    width: 100%;
 }
 body{
     -webkit-font-smoothing: antialiased;
@@ -75,7 +22,7 @@ body{
 }
 .article{
     background: #fff;
-    border-radius: 3px;
+    border-radius: 10px;
     border: 2px solid #cecece;
     margin-top: 40px;
     padding: 0!important;
@@ -101,15 +48,11 @@ img{
     background-repeat:no-repeat;
     background-size:cover;
 }
-
-textarea{
-    width: 80%;
-    height: 40px;
-    border-radius: 5px;
-    padding: 5px;
-}
-
 a{
     text-decoration: none;
     color: black;
+}
+.blogText{
+    color: grey;
+    padding: 5px;
 }

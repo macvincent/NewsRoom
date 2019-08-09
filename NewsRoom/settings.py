@@ -135,3 +135,5 @@ django_heroku.settings(locals())
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+# Temp fix for password recovery
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
