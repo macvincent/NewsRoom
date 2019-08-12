@@ -2,5 +2,5 @@ from django.urls import path
 from authentication.views import CreateUser
 
 urlpatterns = [
-    path('', CreateUser.as_view())
+    path('', CreateUser.as_view(), name = "signUp")
 ]

@@ -22,11 +22,10 @@ class BlogHome(CreateView):
             image = articles[i]["urlToImage"]
             title = articles[i]["title"]
             post = str(articles[i]["content"])
-            post = post[:post.find('[')]
             url = articles[i]["url"]
             source = articles[i]["source"]["name"]
             # If image title or post is missing do not include in newsfeed
-            if (image is None) or (title is None) or (post is None) or (url is None):
+            if (image is None) or (title is None) or (post == "None") or (url is None):
                 continue
             news = NewsRoom(title = title, image = image, post = post, url = url, source = source)
             news.save()
