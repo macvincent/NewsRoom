@@ -9,7 +9,7 @@ class NewsRoom(models.Model):
     post = models.TextField(default="A Comment..", null=True)
     image = models.URLField(default="#", null=True)
     url = models.URLField(default="#")
-    source = models.CharField(max_length = 300, null = True)
+    source = models.TextField(default="Unknown source", null=True)
     
     def __repr__(self):
         return self.title
