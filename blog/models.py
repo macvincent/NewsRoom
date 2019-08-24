@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class NewsRoom(models.Model):
-    title = models.CharField(max_length = 300)
+    title = models.TextField(default="Unknown source", null=True)
     post = models.TextField(default="A Comment..", null=True)
     image = models.URLField(default="#", null=True)
     url = models.URLField(default="#")
