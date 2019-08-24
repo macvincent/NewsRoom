@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 class NewsRoom(models.Model):
     title = models.TextField(default="Unknown source", null=True)
     post = models.TextField(default="A Comment..", null=True)
-    image = models.URLField(default="#", null=True)
-    url = models.URLField(default="#")
+    image = models.TextField(default="Image url", null=True)
+    url = models.TextField(default="#", null=True)
     source = models.TextField(default="Unknown source", null=True)
     
     def __repr__(self):
