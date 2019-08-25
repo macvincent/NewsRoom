@@ -22,6 +22,7 @@ class BlogHome(CreateView):
             image = articles[i]["urlToImage"]
             title = articles[i]["title"]
             post = str(articles[i]["content"])
+            post = post.split('[')[0]
             url = articles[i]["url"]
             source = articles[i]["source"]["name"]
             # If image title or post is missing do not include in newsfeed
