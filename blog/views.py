@@ -1,15 +1,18 @@
 from django.shortcuts import render
 from blog.models import NewsRoom, Comment
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from blog.models import NewsRoom
 from django import forms
+from django.urls import reverse_lazy
 import requests
 import random
 from django.contrib.auth.models import User
 
 #A landing page that offers a news feed.
 #I mean an actual news feed - not pun intended
+#X months later I don't understand this joke
 class BlogHome(CreateView):
     model = NewsRoom
     fields = ['title', 'post', 'image']
@@ -43,6 +46,10 @@ class ChatRoom(TemplateView):
         return render(request, 'static/chatroom.html', {"news": _news ,"comments": oldComments})
 
     def post(self, request):
+        # If User is not authenticated get them to sign up 
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect(reverse_lazy('login'))
+
         _title = request.POST.get('title')
         _comment = request.POST.get('newcomment')
         _news = NewsRoom.objects.filter(title=_title).first()
@@ -54,9 +61,12 @@ class ChatRoom(TemplateView):
 
 class ProfileView(TemplateView):
     def get (self, request):
-
-        # Check who is trying to view the profile
+        # If User is not authenticated get them to sign up 
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect(reverse_lazy('login'))      
+            
         user = request.user
+        # Check who is trying to view the profile
         if request.GET.get('user') is not None:
             username = request.GET.get('user')
             user = User.objects.filter(username = username).first()
