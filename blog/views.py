@@ -21,6 +21,7 @@ class BlogHome(CreateView):
         api_key = "35edd1b6538c47b596c31defeaa68cb6"
         r = requests.get('https://newsapi.org/v2/top-headlines?country=us&apiKey='+api_key).json()
         articles = r['articles']
+        self.news_list.clear()
         for i in range(len(articles)):
             image = articles[i]["urlToImage"]
             title = articles[i]["title"]
