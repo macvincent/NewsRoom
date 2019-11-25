@@ -11,8 +11,6 @@ import random
 from django.contrib.auth.models import User
 from django.conf import settings
 import os
-import PIL
-from PIL import Image
 
 #A landing page that offers a news feed.
 #I mean an actual news feed - not pun intended
