@@ -88,15 +88,18 @@ class ProfileView(TemplateView):
                 stories[comment.news] = [comment.comment]
         storiesNum = len(stories)
 
-        image = UserProfile.objects.filter(user=request.user).last()
+        image = UserProfile.objects.filter(user=request.user)
+        if image is not None:
+            image = image.last()
         # Render dictionary
         return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image})
 
     def post(self, request):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            user = UserProfile.objects.filter(user=request.user).first()
+            user = UserProfile.objects.filter(user=request.user)
             if user is not None:
+                user = user.first()
                 user.image = request.FILES['image']
                 user.user = request.user
             else:
