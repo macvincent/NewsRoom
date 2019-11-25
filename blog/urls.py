@@ -19,7 +19,7 @@ from django.urls import path
 import blog.views as views
 
 urlpatterns = [
-    path('', login_required(views.BlogHome.as_view()), name = 'home'),
+    path('', views.BlogHome.as_view(), name = 'home'),
     path('chatroom/', login_required(views.ChatRoom.as_view()), name = 'chatroom'),
     path('chatroom/', login_required(views.ChatRoom.as_view()), name = 'viewcomment'),
     path('profile/', login_required(views.ProfileView.as_view()), name = 'profile'),

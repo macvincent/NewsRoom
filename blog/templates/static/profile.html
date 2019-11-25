@@ -22,7 +22,11 @@
         </div>
         <div class="profile">
             <div class="profileinfo">
-                <img src="{% static 'img/profile.svg' %%}" alt="" class="profileimage">
+                {% if image is not None %}
+                    <img src="{{image.image.url}}" alt="" class="profileimage">
+                {% else %}
+                    <img src="{% static 'img/profile.svg' %%}" alt="" class="profileimage">
+                {% endif %}
                 <div class="info">
                     <p id="name">{{user.username}}</p>
                     <ul>
@@ -30,6 +34,11 @@
                         <li>Total story engagement: {{storiesNum}}</li>
                         <li>Verified field: Coming soon</li>
                     </ul>
+                    <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                        <input type="file" name="image" accept="image/*" id="image">
+                        <input type="hidden" name="user" value={{user}}>
+                        <input type="submit" value = "Update_Profile">
+                    </form>
                 </div>
             </div>
             <div class="chatinfo">
