@@ -3,12 +3,15 @@ from blog.models import NewsRoom, Comment
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
-from blog.models import NewsRoom
+from blog.models import NewsRoom, ProfileForm, UserProfile
 from django import forms
 from django.urls import reverse_lazy
 import requests
 import random
 from django.contrib.auth.models import User
+from django.conf import settings
+import os
+
 
 #A landing page that offers a news feed.
 #I mean an actual news feed - not pun intended
@@ -76,7 +79,7 @@ class ProfileView(TemplateView):
         comments = Comment.objects.filter(name = user)
         commentsNum = len(comments)
 
-        # Creat a dictionary that maps news to comments
+        # Create a dictionary that maps news to comments
         stories = {}
         for comment in comments:
             if comment.news in stories:
@@ -84,8 +87,19 @@ class ProfileView(TemplateView):
             else:
                 stories[comment.news] = [comment.comment]
         storiesNum = len(stories)
-        
-        # Render dictionary
-        return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories})
 
-            
+        image = UserProfile.objects.filter(user=request.user).last()
+        # Render dictionary
+        return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image})
+
+    def post(self, request):
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = UserProfile.objects.filter(user=request.user).first()
+            if user is not None:
+                user.image = request.FILES['image']
+                user.user = request.user
+            else:
+                user = UserProfile(image=request.POST.get('image'), user=request.user)
+            user.save()
+        return HttpResponseRedirect(reverse_lazy('profile'))

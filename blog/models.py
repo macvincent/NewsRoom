@@ -1,8 +1,10 @@
 # TODO: Add way to verify area of expertice of users and rank comments based on that
 from django.db import models
+from django import forms
 from django.contrib.auth.models import User
 
-
+def get_image_path(test):
+    return ''
 # Create your models here.
 class NewsRoom(models.Model):
     title = models.TextField(default="Unknown source", null=True)
@@ -22,3 +24,12 @@ class Comment(models.Model):
     name = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     comment = models.TextField(default="posts")
 
+# one to one and form
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(null=True)
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['image']
