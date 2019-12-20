@@ -22,7 +22,7 @@
         </div>
         <div class="profile">
             <div class="profileinfo">
-                {% if image is not None %}
+                {% if image.image is not None %}
                     <img src="{{image.image.url}}" alt="" class="profileimage">
                 {% else %}
                     <img src="{% static 'img/profile.svg' %%}" alt="" class="profileimage">

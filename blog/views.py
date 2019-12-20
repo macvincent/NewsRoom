@@ -32,7 +32,7 @@ class BlogHome(CreateView):
             url = articles[i]["url"]
             source = articles[i]["source"]["name"]
             # If image title or post is missing do not include in newsfeed
-            if (image is None) or (title is None) or (post == "None") or (url is None):
+            if (image == None) or (title is None) or (post == "None") or (url is None):
                 continue
             news = NewsRoom(title = title, image = image, post = post, url = url, source = source)
             news.save()
@@ -88,8 +88,9 @@ class ProfileView(TemplateView):
         storiesNum = len(stories)
 
         image = UserProfile.objects.filter(user=request.user)
-        if image is not None:
-            image = image.last()
+        if len(image) != 0:
+            print(image)
+            image = image.last().image
         # Render dictionary
         return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image})
 
@@ -97,8 +98,9 @@ class ProfileView(TemplateView):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             user = UserProfile.objects.filter(user=request.user)
-            if user is not None:
+            if len(user) != 0:
                 user = user.first()
+                print(request.FILES)
                 user.image = request.FILES['image']
                 user.user = request.user
             else:
