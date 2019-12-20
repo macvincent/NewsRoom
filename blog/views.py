@@ -110,6 +110,6 @@ class ProfileView(TemplateView):
                 user.image = request.FILES['image']
                 user.user = request.user
             else:
-                user = UserProfile(image=request.POST.get('image'), user=request.user)
+                user = UserProfile(image=request.FILES['image'], user=request.user)
             user.save()
         return HttpResponseRedirect(reverse_lazy('profile'))

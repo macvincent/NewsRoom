@@ -36,6 +36,7 @@
                     </ul>
                     {% if canEdit%}
                         <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                            <label for="image">Update Profile Picture</label>
                             <input type="file" name="image" accept="image/*" id="image">
                             <input type="hidden" name="user" value={{user}}>
                             <input type="submit" value = "Update_Profile">
