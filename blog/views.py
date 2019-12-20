@@ -87,13 +87,18 @@ class ProfileView(TemplateView):
                 stories[comment.news] = [comment.comment]
         storiesNum = len(stories)
 
-        image = UserProfile.objects.filter(user=request.user)
+        image = UserProfile.objects.filter(user=user)
         if len(image) != 0:
             image = image.last().image
         else:
             image = None
+
+        # Allow users to only be able to modify their own profile
+        canEdit = False
+        if(user == request.user):
+            canEdit = True
         # Render dictionary
-        return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image})
+        return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image, 'canEdit': canEdit})
 
     def post(self, request):
         form = ProfileForm(request.POST, request.FILES)
