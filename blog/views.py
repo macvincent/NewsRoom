@@ -89,8 +89,9 @@ class ProfileView(TemplateView):
 
         image = UserProfile.objects.filter(user=request.user)
         if len(image) != 0:
-            print(image)
             image = image.last().image
+        else:
+            image = None
         # Render dictionary
         return render(request, 'static/profile.html', {"user": user, "storiesNum" : storiesNum, "commentsNum" :  commentsNum, "stories" : stories, 'image' : image})
 
