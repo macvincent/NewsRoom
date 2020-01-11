@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from blog.models import NewsRoom, Comment
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from blog.models import NewsRoom, ProfileForm, UserProfile
@@ -11,6 +11,7 @@ import random
 from django.contrib.auth.models import User
 from django.conf import settings
 import os
+import json
 
 #A landing page that offers a news feed.
 #I mean an actual news feed - not pun intended
@@ -113,3 +114,16 @@ class ProfileView(TemplateView):
                 user = UserProfile(image=request.FILES['image'], user=request.user)
             user.save()
         return HttpResponseRedirect(reverse_lazy('profile'))
+
+# Returns list of top ten trending stories
+class TrendingStories(TemplateView):
+    def get(self, request):
+        news_stories = list(NewsRoom.objects.all())
+        news_stories.sort(key=lambda x: -len(Comment.objects.filter(news = x)))
+        if(len(news_stories) > 15):
+            news_stories = news_stories[:15]
+        trending_stories = []
+        for story in news_stories:
+            list_element = {'title': story.title, 'link': story.url}
+            trending_stories.append(list_element)
+        return JsonResponse(trending_stories, safe=False)

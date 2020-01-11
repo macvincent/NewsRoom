@@ -58,3 +58,30 @@ a{
 .blogText{
     padding: 5px;
 }
+/* Trending Stories */
+#trendingStories{
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #cecece;
+    position: fixed;
+    width: 20%;
+    text-align: left;
+    margin: 15;
+    margin-top: 60px;
+    padding: 10px;
+    height: 85%;
+    overflow: scroll;
+}
+#trendingArticles{
+    border: 1px solid #cecece;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: .9375rem;
+    max-height: 15rem;
+    overflow-y: hidden;
+    font-size: medium;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

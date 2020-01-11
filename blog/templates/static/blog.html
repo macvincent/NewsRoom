@@ -3,6 +3,8 @@
     <head>
         <link rel="stylesheet" href="{%static 'css/header.css' %}">
         <link rel="stylesheet" href="{%static 'css/blog.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{%static 'js/trending.js' %}"></script>
     </head>
     <header>
     </header>
@@ -20,7 +22,11 @@
             </div>
         </div>
         {% endblock %}
+        <ul id="trendingStories">
+            <h3>O Trending Analyses</h3>
+        </ul>
         <div class="feed">
+            <div class="mainFeed">
                 {% for news in news_list %}
                 <div  class="article">
                     <a href="{% url 'chatroom' %}?news={{news.title}}">
@@ -34,6 +40,7 @@
                     </a>
                 </div>
                 {% endfor %}
+            </div>
         </div>
         </div>
         <footer>Data supplied by News API</footer>
