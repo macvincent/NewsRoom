@@ -24,4 +24,5 @@ urlpatterns = [
     path('chatroom/', login_required(views.ChatRoom.as_view()), name = 'viewcomment'),
     path('profile/', login_required(views.ProfileView.as_view()), name = 'profile'),
     path('latest/', views.TrendingStories.as_view(), name = 'trending'),
+    path('update/', views.AsyncStories.as_view(), name = 'update_stories'),
 ]
