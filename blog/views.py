@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from blog.models import NewsRoom, Comment
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from blog.models import NewsRoom, ProfileForm, UserProfile
@@ -39,6 +39,23 @@ class BlogHome(CreateView):
             news.save()
             self.news_list.add(news)
         return render(request, 'static/blog.html', {"news_list": self.news_list})
+
+# Update blog as user scrolls down
+class AsyncStories(TemplateView):
+    past_stories = list(set(NewsRoom.objects.all()) - BlogHome.news_list)
+    stories_len = len(past_stories)
+    def get(self, request):
+        call_num = int(request.GET.get('call'))
+        call_num %= (self.stories_len//10)
+        max_num = 10*call_num
+        additional_stories = self.past_stories[10*(call_num-1):10*call_num]
+        stories = {}
+        stories_count = 0
+        for story in additional_stories:
+            temp_story = {"title": story.title, "image": story.image, "post": story.post, "url": story.url, "source": story.source}
+            stories[str(stories_count)] =  temp_story
+            stories_count += 1
+        return JsonResponse(stories)
 
 # Create chat room to discuss about news
 class ChatRoom(TemplateView):
